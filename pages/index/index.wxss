@@ -1,0 +1,112 @@
+page{
+  font-family: "Microsoft Yahei";
+  background: #4a4388;
+}
+.tab{
+  display: flex;
+  height: 93rpx;
+  text-align: center;
+  border-bottom: 1px solid #605b96;
+}
+.tab .tabitem{
+  flex: 1;
+  height: 93rpx;
+  line-height: 93rpx;
+  font-size: 28rpx;
+  color: #fff;
+  }
+.tab .cur{
+  position: relative;
+  color: #4a4388;
+  background: linear-gradient(#f7e2ba,#fff1de);
+}
+.tab .cur:after{
+  content: '';
+  position: absolute;
+  bottom: -28rpx;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -15rpx;
+  border:15rpx solid transparent;
+  border-top-color: #fff1de;
+}
+.tabpane{
+  }
+.qxpf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.qxpf .img-desc{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20rpx 0 16rpx 90rpx;
+  line-height: 1.6;
+  background: #322c68;
+}
+.qxpf .img-desc:before{
+  content: '';
+  position: absolute;
+  top: -28rpx;
+  left: 145rpx;
+  width: 0;
+  height: 0;
+  border:15rpx solid transparent;
+  border-bottom-color: #322c68;
+}
+.qxpf .img{
+  width: 552rpx;
+  height: 550rpx;
+  text-align: center;
+}
+.qxpf .tit{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #fff;
+}
+.qxpf .desc{
+  font-size: 28rpx;
+  color: #85839f;
+}
+.pifu-list{
+  display: flex;
+  height: 364rpx;
+  margin-top: 45rpx;
+  text-align: center;
+}
+
+.pifu-list .pifu-list-item{
+  position: relative;
+  width: 28rpx;
+  height: 240rpx;
+  padding: 0 18rpx;
+  margin: 0 6rpx 0 8rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cd721ae.jpg) no-repeat;
+}
+.pifu-list .pifu-list-item .pifu-list-tit{
+  position: absolute;
+  left: 16rpx;
+  display: block;
+  width: 28rpx;
+  font-size: 24rpx;
+  line-height: 1.3;
+  color: #fff;
+}
+.pifu-list .pifu-list-item .pifu-list-img{
+  position: absolute;
+  top: -10rpx;
+  left: 60rpx;
+  display: none;
+  width: 238rpx;
+  height: 236rpx;
+}
+.pifu-list .pifu-list-item.active{
+  width: 248rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cur_8774ff6.jpg) no-repeat;
+}
+.pifu-list .pifu-list-item.active .pifu-list-img{
+  display: block;
+}

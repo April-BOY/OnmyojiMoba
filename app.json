@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/rank/rank",
+    "pages/search/search",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#6c67a4",
+    "navigationBarTitleText": "式神录",
+    "navigationBarTextStyle": "#dddaf6"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#4a4388",
+    "backgroundColor": "#6c67a4",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "式神录",
+        "iconPath":"images/index.png",
+        "selectedIconPath":"images/index.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "式神排名",
+        "iconPath": "images/rank.png",
+        "selectedIconPath":"images/rank.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "images/search.png",
+        "selectedIconPath":"images/search.png"
+      }
+    ]
+  }
+}
