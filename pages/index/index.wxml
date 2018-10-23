@@ -1,3 +1,5 @@
+
+
 <view class="tab">
 	<text class="tabitem cur">全新皮肤</text>
 	<text class="tabitem">全新式神</text>
@@ -12,7 +14,7 @@
 			<text class="desc">上架时间：2018.10.19上架服装铺</text>
 		</view>
 		<view class="pifu-list" bindtap="switchContent">
-			<view class="pifu-list-item active">
+			<view class="pifu-list-item active" data-id="">
 				<text class="pifu-list-tit">妖狐 返校·情窦</text>
 				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181019/e71936c2-8663-40b5-ba1f-4d6eaf1bf1dc.png"></image>
 			</view>
