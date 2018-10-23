@@ -1,0 +1,20 @@
+<template name="shishenlistTemplate">
+  <view class="qxss-ul">
+  	<view class="qxss-li">
+  		<image class="qxss-img" src="https://ok.166.net/gameyw-gbox/moba/gui/res/head_fang/1075.png"></image>
+  		<text class="qxss-img-desx">面灵气</text>
+  	</view>
+  	<view class="qxss-li">
+  		<image class="qxss-img" src="https://ok.166.net/gameyw-gbox/moba/gui/res/head_fang/1075.png"></image>
+  		<text class="qxss-img-desx">面灵气</text>
+  	</view>
+  	<view class="qxss-li">
+  		<image class="qxss-img" src="https://ok.166.net/gameyw-gbox/moba/gui/res/head_fang/1075.png"></image>
+  		<text class="qxss-img-desx">面灵气</text>
+  	</view>
+  	<view class="qxss-li">
+  		<image class="qxss-img"></image>
+  		<text class="qxss-img-desx">面灵气</text>
+  	</view>
+  </view>
+</template>

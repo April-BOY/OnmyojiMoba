@@ -1,5 +1,5 @@
-
-
+<import src="../common/indicators/indicators.wxml"></import>
+<import src="../common/shishenlist/shishenlist.wxml"></import>
 <view class="tab">
 	<text class="tabitem cur">全新皮肤</text>
 	<text class="tabitem">全新式神</text>
@@ -7,18 +7,20 @@
 	<text class="tabitem">全部式神</text>
 </view>
 <view class="tabpane">
-	<view class="pane qxpf">
+	<view class="qxpf">
 		<image class="img" src="https://nie.res.netease.com/r/pic/20181019/e71936c2-8663-40b5-ba1f-4d6eaf1bf1dc.png"></image>
 		<view class="img-desc">
 			<text class="tit">新皮肤：妖狐 返校·情窦</text>
 			<text class="desc">上架时间：2018.10.19上架服装铺</text>
 		</view>
-		<view class="pifu-list" bindtap="switchContent">
-			<view class="pifu-list-item active" data-id="">
-				<text class="pifu-list-tit">妖狐 返校·情窦</text>
-				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181019/e71936c2-8663-40b5-ba1f-4d6eaf1bf1dc.png"></image>
-			</view>
-			<view class="pifu-list-item">
+		<!-- <view class="pifu-list"> -->
+      <scroll-view class="pifu-list" scroll-x="{{true}}">
+          <view wx:for="{{piFuInfo}}" wx:key="{{index}}" class="{{currentId == piFuInfo[index].id?'pifu-list-item active':'pifu-list-item'}}" data-id="{{piFuInfo[index].id}}" bindtap="switchContent">
+            <text class="pifu-list-tit">{{item.subTitle}}</text>
+            <image class="pifu-list-img" src="{{item.imageUrl}}"></image>
+          </view>
+      </scroll-view>
+			<!-- <view class="pifu-list-item">
 				<text class="pifu-list-tit">御馔津·金穗光羽</text>
 				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181019/223c6bf1-978e-4490-99af-6c334b57e8cf.png"></image>
 			</view>
@@ -33,7 +35,20 @@
 			<view class="pifu-list-item">
 				<text class="pifu-list-tit">妖刀姬·御神之刃</text>
 				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20180930/d1ec3d78-2e71-4200-8d8d-0273810facb8.png"></image>
-			</view>
-		</view>
+			</view> -->
+		<!-- </view> -->
+	</view>
+	<view class="pane qxss">
+		<template is="shishenlistTemplate"></template>
+		<template is="indicatorsTemplate"></template>
+	</view>
+	<view class="pane zmss">
+		<template is="shishenlistTemplate"></template>
+		<view class="btn-more"></view>
+	</view>
+	<view class="pane qbss">
+		<template is="shishenlistTemplate"></template>
+		<template is="indicatorsTemplate"></template>
 	</view>
 </view>
+<!-- <image src='{{FullbodyImage}}'></image> -->

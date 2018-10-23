@@ -1,1 +1,125 @@
-/* pages/rank/rank.wxss */
+@import "../common/indicators/indicators.wxss";
+page{
+  font-family: "Microsoft Yahei";
+  background: #4a4388;
+  font-size: 27rpx;
+  color: #fff;
+}
+.tab{
+  display: flex;
+  height: 93rpx;
+  /* text-align: center; */
+  border-bottom: 1px solid #605b96;
+}
+.tab .tabitem{
+  flex: 1;
+  height: 93rpx;
+  font-weight: 700;
+  line-height: 93rpx;
+  text-align: center;
+}
+.tab .cur{
+  position: relative;
+  color: #4a4388;
+  background: linear-gradient(#f7e2ba,#fff1de);
+}
+.tab .cur:after{
+  content: '';
+  position: absolute;
+  bottom: -28rpx;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -15rpx;
+  border:15rpx solid transparent;
+  border-top-color: #fff1de;
+}
+.sub-tab{
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx dashed #8d8ba6;
+}
+.sub-tab .sub-tab-pane-1{
+  display:inline-block;
+  width: 481rpx;
+  text-align: center;
+}
+.sub-tab .sub-tab-pane-2{
+  position: relative;
+  display: inline-block;
+  width: 152rpx;
+}
+.sub-tab .sub-tab-pane-3{
+  position: relative;
+  display: inline-block;
+  width: 119rpx;
+}
+.sub-tab .sub-tab-pane-2:before,.sub-tab .sub-tab-pane-3:before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 14rpx;
+  height: 8rpx;
+  margin-top: -8rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_up_8259726.png) no-repeat;
+  opacity: .5;
+}
+.sub-tab .sub-tab-pane-2:before{
+  left: 60rpx;
+  
+}
+.sub-tab .sub-tab-pane-3:before{
+  left: 85rpx;
+}
+.sub-tab .sub-tab-pane-2:after,.sub-tab .sub-tab-pane-3:after{
+  content: '';
+  position: absolute;
+  top: 51%;
+  width: 14rpx;
+  height: 8rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_down_570e114.png) no-repeat;
+  opacity: .5;
+}
+.sub-tab .sub-tab-pane-2:after{
+  left: 60rpx;
+  
+}
+.sub-tab .sub-tab-pane-2:after{
+  left: 60rpx;
+}
+.sub-tab .sub-tab-pane-2.down:after{
+  opacity: 1;
+}
+.sub-tab .sub-tab-pane-3:after{
+  left: 85rpx;
+}
+.list-box{
+  margin-top: 26rpx;
+}
+.list .list-item{
+  /* display: flex; */
+  height: 76rpx;
+  line-height: 76rpx;
+  padding-top: 8rpx;
+  /* line-height: 76rpx; */
+  text-align: center;
+}
+.list .list-item:nth-of-type(2n+1){
+  background: rgba(0,0,0,.2);
+}
+.list .list-item .item{
+  /* flex: 1; */
+  float: left;
+  width: 151rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.list .list-item .item-img{
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 45rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}

@@ -1,7 +1,14 @@
-page{
+@import "../common/indicators/indicators.wxss";
+@import "../common/shishenlist/shishenlist.wxss";
+/* public style */
+  page{
   font-family: "Microsoft Yahei";
   background: #4a4388;
 }
+.pane{
+  padding-top: 40rpx;
+}
+/* tab style */
 .tab{
   display: flex;
   height: 93rpx;
@@ -11,6 +18,7 @@ page{
 .tab .tabitem{
   flex: 1;
   height: 93rpx;
+  font-weight: 700;
   line-height: 93rpx;
   font-size: 28rpx;
   color: #fff;
@@ -71,15 +79,18 @@ page{
   font-size: 28rpx;
   color: #85839f;
 }
+
 .pifu-list{
-  display: flex;
+  /* display: flex; */
+  width: 650rpx;
   height: 364rpx;
   margin-top: 45rpx;
   text-align: center;
+  white-space: nowrap;
 }
-
 .pifu-list .pifu-list-item{
   position: relative;
+  display: inline-block;
   width: 28rpx;
   height: 240rpx;
   padding: 0 18rpx;
@@ -92,8 +103,9 @@ page{
   display: block;
   width: 28rpx;
   font-size: 24rpx;
-  line-height: 1.3;
+  line-height: 1.1;
   color: #fff;
+  white-space: normal;
 }
 .pifu-list .pifu-list-item .pifu-list-img{
   position: absolute;
@@ -110,3 +122,17 @@ page{
 .pifu-list .pifu-list-item.active .pifu-list-img{
   display: block;
 }
+/* 全新式神 */
+.qxss{
+  padding-top: 40rpx;
+}
+
+.zmss .btn-more{
+  width: 482rpx;
+  height: 80rpx;
+  margin:0 auto;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_5a17ab2.png) no-repeat;
+}
+/* .zmss .btn-more:hover{
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_hover_6c2b485.png) no-repeat;
+} */

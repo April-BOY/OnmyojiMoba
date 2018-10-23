@@ -1,0 +1,6 @@
+<template name="indicatorsTemplate">
+  <view class="list-box-control">
+    <icon class="indicator on"></icon>
+    <icon class="indicator"></icon>
+  </view>
+</template>
