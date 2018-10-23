@@ -14,6 +14,7 @@
   height: 93rpx;
   text-align: center;
   border-bottom: 1px solid #605b96;
+  z-index: 10;
 }
 .tab .tabitem{
   flex: 1;
@@ -123,9 +124,7 @@
   display: block;
 }
 /* 全新式神 */
-.qxss{
-  padding-top: 40rpx;
-}
+
 
 .zmss .btn-more{
   width: 482rpx;

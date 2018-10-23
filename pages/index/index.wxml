@@ -1,52 +1,32 @@
 <import src="../common/indicators/indicators.wxml"></import>
 <import src="../common/shishenlist/shishenlist.wxml"></import>
-<view class="tab">
-	<text class="tabitem cur">全新皮肤</text>
-	<text class="tabitem">全新式神</text>
-	<text class="tabitem">周免式神</text>
-	<text class="tabitem">全部式神</text>
+<view class="tab" bindtap="tabTap">
+	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}">{{item.name}}</text>
 </view>
 <view class="tabpane">
-	<view class="qxpf">
-		<image class="img" src="https://nie.res.netease.com/r/pic/20181019/e71936c2-8663-40b5-ba1f-4d6eaf1bf1dc.png"></image>
+	<view wx:if="{{currentIndex==0}}" class="qxpf">
+		<image class="img" src="{{currentPifuUrl}}"></image>
 		<view class="img-desc">
-			<text class="tit">新皮肤：妖狐 返校·情窦</text>
-			<text class="desc">上架时间：2018.10.19上架服装铺</text>
+			<text class="tit">{{currentTit}}</text>
+			<text class="desc">上架时间：{{currentDesc}}</text>
 		</view>
 		<!-- <view class="pifu-list"> -->
       <scroll-view class="pifu-list" scroll-x="{{true}}">
-          <view wx:for="{{piFuInfo}}" wx:key="{{index}}" class="{{currentId == piFuInfo[index].id?'pifu-list-item active':'pifu-list-item'}}" data-id="{{piFuInfo[index].id}}" bindtap="switchContent">
+          <view wx:for="{{piFuInfo}}" wx:key="{{index}}" class="{{currentId == piFuInfo[index].id?'pifu-list-item active':'pifu-list-item'}}" data-id="{{piFuInfo[index].id}}" data-pifuurl="{{piFuInfo[index].imageUrl}}" data-tit="{{piFuInfo[index].title}}" data-desc="{{piFuInfo[index].comment}}" bindtap="switchContent">
             <text class="pifu-list-tit">{{item.subTitle}}</text>
             <image class="pifu-list-img" src="{{item.imageUrl}}"></image>
           </view>
       </scroll-view>
-			<!-- <view class="pifu-list-item">
-				<text class="pifu-list-tit">御馔津·金穗光羽</text>
-				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181019/223c6bf1-978e-4490-99af-6c334b57e8cf.png"></image>
-			</view>
-			<view class="pifu-list-item">
-				<text class="pifu-list-tit">莹草返校·憧憬</text>
-				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181012/da5edcf1-645d-45f5-92b8-cb4ef8ac0b87.png"></image>
-			</view>
-			<view class="pifu-list-item">
-				<text class="pifu-list-tit">彼岸花返校·求索</text>
-				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20181012/6561bc0f-1d15-4e35-b179-a56412dd53e8.png"></image>
-			</view>
-			<view class="pifu-list-item">
-				<text class="pifu-list-tit">妖刀姬·御神之刃</text>
-				<image class="pifu-list-img" src="https://nie.res.netease.com/r/pic/20180930/d1ec3d78-2e71-4200-8d8d-0273810facb8.png"></image>
-			</view> -->
-		<!-- </view> -->
 	</view>
-	<view class="pane qxss">
-		<template is="shishenlistTemplate"></template>
-		<template is="indicatorsTemplate"></template>
+	<view wx:if="{{currentIndex==1}}" class="pane qxss">
+			<template is="shishenlistTemplate" data="{{qxssUrl}}"></template>
+			<template is="indicatorsTemplate"></template>
 	</view>
-	<view class="pane zmss">
+	<view wx:if="{{currentIndex==2}}" class="pane zmss">
 		<template is="shishenlistTemplate"></template>
 		<view class="btn-more"></view>
 	</view>
-	<view class="pane qbss">
+	<view wx:if="{{currentIndex==3}}" class="pane qbss">
 		<template is="shishenlistTemplate"></template>
 		<template is="indicatorsTemplate"></template>
 	</view>
