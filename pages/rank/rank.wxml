@@ -1,12 +1,7 @@
 <import src="../common/indicators/indicators.wxml"></import>
+<import src="../common/rankitem/rankitem.wxml"></import>
 <view class="tab">
-	<text class="tabitem cur">全</text>
-	<text class="tabitem">侍</text>
-	<text class="tabitem">巫</text>
-	<text class="tabitem">射</text>
-	<text class="tabitem">忍</text>
-	<text class="tabitem">守</text>
-	<text class="tabitem">祝</text>
+	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}" bindtap="tabTap">{{item.name}}</text>
 </view>
 <view class="sub-tab">
 	<text class="sub-tab-pane-1">数据每周五12:00更新</text>
@@ -15,6 +10,11 @@
 </view>
 <view class="list-box">
 	<view class="list">
+		<view class="list-item" wx:for="{{shiShenInfo}}" wx:for-item="item" wx:key="index">
+			<view wx:for="{{rateInfo}}" wx:for-item="rate" wx:key="rate.id">
+				<template is="rankitemTemplate" data="{{rate,url,item}}"></template>
+			</view>
+		</view>
 		<view class="list-item">
 			<image class="item item-img" src="https://ok.166.net/gameyw-gbox/moba/gui/res/head_circle/1051.png?t=20180831123029"></image>
 			<text class="item">姑获鸟</text>

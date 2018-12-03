@@ -1,19 +1,10 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
+	export function unicodeToJson(obj){
+    /**
+		 * 解决返回的数据是 Unicode 编码的问题
+		 */
+		var start = obj.indexOf("{");
+		var end = obj.lastIndexOf("}") + 1;
+		var string = obj.slice(start, end);
+		var json = JSON.parse(string);
+		return json;
 }

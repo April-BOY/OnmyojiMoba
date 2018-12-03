@@ -1,0 +1,4 @@
+<template name="thumbnailTemplate">
+    <image class="qxss-img" src="{{url+item['式神方头像']}}"></image>
+	<text class="qxss-img-desc">{{item["式神名称"]}}</text>
+</template>

@@ -1,9 +1,12 @@
 <import src="../common/indicators/indicators.wxml"></import>
-<import src="../common/shishenlist/shishenlist.wxml"></import>
+<!-- <import src="../common/shishenlist/shishenlist.wxml"></import>
+<import src="../common/zmss/zmss.wxml"></import>
+<import src="../common/qbss/qbss.wxml"></import> -->
+<import src="../common/thumbnail/thumbnail.wxml"></import>
 <view class="tab" bindtap="tabTap">
 	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}">{{item.name}}</text>
 </view>
-<view class="tabpane">
+<view>
 	<view wx:if="{{currentIndex==0}}" class="qxpf">
 		<image class="img" src="{{currentPifuUrl}}"></image>
 		<view class="img-desc">
@@ -18,17 +21,28 @@
           </view>
       </scroll-view>
 	</view>
-	<view wx:if="{{currentIndex==1}}" class="pane qxss">
-			<template is="shishenlistTemplate" data="{{qxssUrl}}"></template>
-			<template is="indicatorsTemplate"></template>
+	<view wx:if="{{currentIndex==1}}">
+		<view class="ss-ul">
+			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" wx:if="{{item['新式神']}}" class="ss-li">
+				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+			</view>
+		</view>
+		<template is="indicatorsTemplate"></template>
 	</view>
-	<view wx:if="{{currentIndex==2}}" class="pane zmss">
-		<template is="shishenlistTemplate"></template>
+	<view wx:if="{{currentIndex==2}}">
+		<view class="ss-ul">
+			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" wx:if="{{item['是否长期限免'] && item['是否限免']}}" class="ss-li">
+				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+			</view>
+		</view>
 		<view class="btn-more"></view>
 	</view>
-	<view wx:if="{{currentIndex==3}}" class="pane qbss">
-		<template is="shishenlistTemplate"></template>
+	<view wx:if="{{currentIndex==3}}">
+		<view class="ss-ul">
+			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" class="ss-li">
+				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+			</view>
+		</view>
 		<template is="indicatorsTemplate"></template>
 	</view>
 </view>
-<!-- <image src='{{FullbodyImage}}'></image> -->

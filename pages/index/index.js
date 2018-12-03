@@ -1,15 +1,18 @@
+// let util = require('../../utils/util.js');
+import {unicodeToJson} from '../../utils/util.js';
 Page({
 	data: {
     tab:[
       {
-        name:"全新皮肤",
+        name:"全新皮肤"
       },
       {
         name:"全新式神"
       },
       {
         name:"周免式神"
-      },{
+      },
+      {
         name:"全部式神"
       }
     ],
@@ -20,8 +23,9 @@ Page({
     currentDesc:"2018.10.19上架服装铺",
 		currentId: "ea103f45-3382-4823-8a92-7e385db8af75",
     currentIndex:0,
-    qxssUrl:[]
-	},
+    shiShenLuInfo:[],
+    url:"https://ok.166.net/gameyw-gbox/moba/"
+  },
 	onLoad: function(getPifuData) {
 		var that = this;
 		wx.request({
@@ -35,19 +39,12 @@ Page({
 			success: function(res) {
 
 				
-				var pifuJson = that.unicodeToJson(res.data);
-				// console.log(pifuJson.result);
+				var pifuJson = unicodeToJson(res.data);
 				that.setData({
 					piFuInfo: pifuJson.result,
 				});
 				// console.log(that.data.piFuInfo[0].comment);
-
-
         that.requestShiShenData();
-			
-
-
-			
 		}
 	});
   },
@@ -60,22 +57,22 @@ Page({
     	*/
       url: 'https://comp-sync.webapp.163.com/g78_hero/free_convey?callback=jQuery111308366921136572285_1540169781437&_=1540169781439',
     	success: function(res) {
-    		var shishenluJson = that.unicodeToJson(res.data);
-        // var newJson = that.unicodeToJson(shishenluJson.data);
-        console.log(shishenluJson.data);
+        console.log(res);
+    		var shishenluJson = unicodeToJson(res.data);
         var url = "https://ok.166.net/gameyw-gbox/moba/";
         var arr = [];
-        // arr.push(newJson);
-    		console.log(arr);
-        for(var i = 0;i < shishenluJson.data.length;i++){
-          if(shishenluJson.data[i].新式神){
-            arr[i] = "url+shishenluJson.data[i].式神方头像";
-            that.setData({
-            	qxssUrl:arr
-            });
-          }
+        var str = "";
+        var trueJson = shishenluJson.data;
+        for(var i in trueJson){
+          /**
+           * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
+           * 1 {cv名字:(4) ["立花慎之介", "边江", "Crispin Freeman", "김명준"],式神ID:1020}
+           */
+          arr.push(trueJson[i]);
         }
-        // console.log(arr.length);
+        that.setData({
+          shiShenLuInfo:arr
+        });
     	}
     });
   },
@@ -87,19 +84,17 @@ Page({
       currentDesc:e.currentTarget.dataset.desc
 		});
 	},
-	unicodeToJson: function(obj) {
-		/**
-		 * 解决返回的数据是 Unicode 编码的问题
-		 */
-		var start = obj.indexOf("{");
-		var end = obj.lastIndexOf("}") + 1;
-		var string = obj.slice(start, end);
-		var json = JSON.parse(string);
-		return json;
-	},
+	// unicodeToJson: function(obj) {
+	// 	var start = obj.indexOf("{");
+	// 	var end = obj.lastIndexOf("}") + 1;
+	// 	var string = obj.slice(start, end);
+	// 	var json = JSON.parse(string);
+	// 	return json;
+	// },
   tabTap:function(e){
+    // 点击切换选项卡
     this.setData({
       currentIndex:e.target.dataset.index,
     });
-  },
+  }
 })

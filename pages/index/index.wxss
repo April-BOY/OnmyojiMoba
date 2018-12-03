@@ -1,12 +1,9 @@
 @import "../common/indicators/indicators.wxss";
-@import "../common/shishenlist/shishenlist.wxss";
+@import "../common//thumbnail//thumbnail.wxss";
 /* public style */
   page{
   font-family: "Microsoft Yahei";
   background: #4a4388;
-}
-.pane{
-  padding-top: 40rpx;
 }
 /* tab style */
 .tab{
@@ -40,8 +37,6 @@
   border:15rpx solid transparent;
   border-top-color: #fff1de;
 }
-.tabpane{
-  }
 .qxpf{
   display: flex;
   flex-direction: column;
@@ -103,6 +98,7 @@
   left: 16rpx;
   display: block;
   width: 28rpx;
+  padding-top: 5rpx;
   font-size: 24rpx;
   line-height: 1.1;
   color: #fff;
@@ -123,9 +119,24 @@
 .pifu-list .pifu-list-item.active .pifu-list-img{
   display: block;
 }
-/* 全新式神 */
-
-
+/* 全新式神、周免式神、全部式神公共样式 */
+.ss-ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 40rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+.ss-li{
+  width: 144rpx;
+  height: 144rpx;
+  padding: 2rpx;
+  margin: 0 5rpx 75rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_role_avatar_05d3105.png) no-repeat;
+}
+/* 周免式神样式 */
 .zmss .btn-more{
   width: 482rpx;
   height: 80rpx;

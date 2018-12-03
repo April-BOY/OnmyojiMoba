@@ -1,4 +1,5 @@
 .list-box-control{
+  display: block;
   height: 60rpx;
   text-align: center;
   line-height: 60rpx;
