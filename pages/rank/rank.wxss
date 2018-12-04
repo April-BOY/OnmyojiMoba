@@ -89,7 +89,16 @@ page{
 .sub-tab .sub-tab-pane-2:after{
   left: 60rpx;
 }
+.sub-tab .sub-tab-pane-2.up::before{
+  opacity: 1;
+}
 .sub-tab .sub-tab-pane-2.down:after{
+  opacity: 1;
+}
+.sub-tab .sub-tab-pane-3.up::before{
+  opacity: 1;
+}
+.sub-tab .sub-tab-pane-3.down:after{
   opacity: 1;
 }
 .sub-tab .sub-tab-pane-3:after{

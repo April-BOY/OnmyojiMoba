@@ -1,5 +1,5 @@
 // pages/rank/rank.js
-import {unicodeToJson} from '../../utils/util.js';
+import {unicodeToJson,toggleRate} from '../../utils/util.js';
 Page({
   data: {
     tab:[
@@ -25,10 +25,11 @@ Page({
     		name:"祝"
     	}
     ],
-		currentIndex:0,
-		shiShenInfo:[],
-		url:"https://ok.166.net/gameyw-gbox/moba/",
-		rateInfo:[]
+	currentIndex:0,
+	url:"https://ok.166.net/gameyw-gbox/moba/",
+	rankData:[],
+	isUpRate:false,
+	isPickRate:false
   },
 
   onLoad: function (options) {
@@ -38,9 +39,7 @@ Page({
 				url: 'https://comp-sync.webapp.163.com/g78_hero/free_convey?callback=jQuery111308366921136572285_1540169781437&_=1540169781439',
 				success: function(res) {
 					var shiShenJson = unicodeToJson(res.data);
-					var url = "https://ok.166.net/gameyw-gbox/moba/";
 					var arr = [];
-					var str = "";
 					var trueJson = shiShenJson.data;
 					// console.log(trueJson);
 					for(var i in trueJson){
@@ -54,6 +53,7 @@ Page({
 					that.setData({
 						shiShenInfo:arr
 					});
+					
 					that.rate();
 				}
 			});
@@ -69,18 +69,6 @@ Page({
 				var rawJson = JSON.parse(strJson);
 				var rateJson = rawJson.data;
 				var rateArr =[];
-				// var rateArr = [
-				// 	{
-				// 		id:1001,
-				// 		winrate:'190%',
-				// 		pickrate:'32%'
-				// 	},
-				// 	{
-				// 		id:1001,
-				// 		winrate:'190%',
-				// 		pickrate:'32%'
-				// 	},
-				// ]
 				for(var key in rateJson){
 					rateArr.push({
 						id:key,
@@ -88,16 +76,70 @@ Page({
 						pickrate:rateJson[key][2]['pickrate']
 					});
 				}
-				console.log(rateArr);
+				// console.log(rateArr);
 				that.setData({
 					rateInfo:rateArr
 				});
+				that.getRankData();
 			}
 		})
 	},
-  tabTap:function(e){
-  	this.setData({
-  		currentIndex:e.target.dataset.index,
-  	});
-  }
+	getRankData:function(){
+		var that = this;
+		// 对两个接口获取到的数据进行过滤
+		var arr = [];
+		var rankData = [];
+		for(var i =0;i< this.data.shiShenInfo.length;i++){
+			for(var j = 0;j < this.data.rateInfo.length;j++){
+				if(this.data.shiShenInfo[i]['式神ID']==this.data.rateInfo[j]['id']){
+					arr.push({
+						head_circle:this.data.shiShenInfo[i]['式神圆头像'],
+						name:this.data.shiShenInfo[i]['式神名称'],
+						role:this.data.shiShenInfo[i]['式神定位'],
+						winrate:this.data.rateInfo[j]['winrate'],
+						pickrate:this.data.rateInfo[j]['pickrate']
+					})
+				}
+			}
+		}
+		rankData = that.upRate(arr);
+		this.setData({
+			rankData
+		});
+	},
+	upRate:function(rankData){
+		var arr = rankData;
+		var length = rankData.length;
+		for(var i =0;i< length;i++){
+			for(var j=0;j< length-1-i;j++){
+				if(parseFloat(arr[j]['winrate'])<parseFloat(arr[j+1]['winrate'])){
+					var temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		return arr;
+	},
+	toggleWinRate:function(e){
+		var arr = this.data.rankData;
+		var rankData = toggleRate(arr,this.data.isUpRate,e.target.dataset.rate);
+		this.setData({
+			isUpRate:!this.data.isUpRate,
+			rankData
+		});
+	},
+	togglePickRate:function(e){
+		var arr = this.data.rankData;
+		var rankData = toggleRate(arr,this.data.isPickRate,e.target.dataset.rate);
+		this.setData({
+			isPickRate:!this.data.isPickRate,
+			rankData
+		});
+	},
+	tabTap:function(e){
+		this.setData({
+			currentIndex:e.target.dataset.index,
+		});
+	}
 })

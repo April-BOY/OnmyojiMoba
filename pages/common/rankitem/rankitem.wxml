@@ -1,7 +1,7 @@
 <template name="rankitemTemplate">
-    <image class="item item-img" src="{{url+item['式神圆头像']}}"></image>
-	<text class="item">{{item['式神名称']}}</text>
-	<text class="item">{{item['式神定位']}}</text>
-    <text wx:if="{{item['式神ID']===rate.id}}" class="item">{{rate[winrate]}}</text>
-	<text wx:if="{{item['式神ID']===rate.id}}" class="item">{{rate.pickrate}}</text>
+    <image class="item item-img" src="{{url+item.head_circle}}"></image>
+	<text class="item">{{item.name}}</text>
+	<text class="item">{{item.role}}</text>
+    <text class="item">{{item.winrate}}</text>
+	<text class="item">{{item.pickrate}}</text>
 </template>
