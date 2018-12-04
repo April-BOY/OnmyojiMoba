@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/rank/rank",
     "pages/index/index",
+    "pages/rank/rank",
     "pages/search/search"
   ],
   "window": {
