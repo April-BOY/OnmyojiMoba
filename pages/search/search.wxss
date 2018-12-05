@@ -1,1 +1,81 @@
 /* pages/search/search.wxss */
+page{
+    padding-top: 50rpx;
+    background: #eee6e3;
+}
+.tab{
+    display:flex;
+    align-items: center;
+    padding: 0 50rpx;
+    /* height: 93rpx; */
+}
+.tab .tab-img{
+    flex: 1;
+    height: 25rpx;
+}
+.tab .tab-sub-img{
+    flex: 1;
+    margin: 0 10rpx;
+    height: 18rpx;
+}
+.search-box{
+    display: flex;
+    justify-content: center;
+    margin: 100rpx 0;
+}
+.search-txt{
+    width: 500rpx;
+    height: 90rpx;
+    padding-left: 30rpx;
+    border: 3rpx solid #6d599a;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+}
+.search-btn{
+    width:96rpx;
+    height: 96rpx;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    background: #6d599a url(https://moba.res.netease.com/pc/zt/20171216152639/img/search_btn_adbb256.png) no-repeat 50% 50%;
+}
+.search-result{
+    width: 85%;
+    padding: 7rpx;
+    margin: 0 auto;
+    border:4rpx solid #773a7c;
+    border-radius: 10rpx;
+    background: #fff;
+}
+
+.thumbnail-list{
+    width: 87%;
+    padding: 40rpx;
+    border:2rpx solid #a399ba;
+    height: 544rpx;
+  /* text-align: center; */
+}
+.thumbnail-box{
+    display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.thumbnail{
+  width: 160rpx;
+  margin: 0 5rpx 20rpx;
+  text-align: center
+}
+.img-wrap{
+    padding: 4rpx;
+    border: 2rpx solid #473476;
+    font-size: 0;
+}
+.thumbnail-img{
+    width: 144rpx;
+    height: 144rpx;
+    border: 2rpx solid #624832;
+    background: #a16d57;
+}
+.thumbnail-desc{
+    font-size: 28rpx;
+    color: #3e2c71;
+}

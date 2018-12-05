@@ -1,66 +1,64 @@
 // pages/search/search.js
+import {unicodeToJson} from '../../utils/util.js';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    searchInfo:[],
+    rawData:[],
+    // 获取式神录中图片的接口
+    url:"https://ok.166.net/gameyw-gbox/moba/",
+    inputValue:'',
+    searchResult:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      // 获取所有式神数据的接口
+      url: 'https://comp-sync.webapp.163.com/g78_hero/free_convey?callback=jQuery111308366921136572285_1540169781437&_=1540169781439',
+    	success: function(res) {
+    		var shishenluJson = unicodeToJson(res.data);
+        var arr = [];
+        var searchInfo = [];
+        var trueJson = shishenluJson.data;
+        for(var i in trueJson){
+          /**
+           * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
+           * 1 {cv名字:(4) ["立花慎之介", "边江", "Crispin Freeman", "김명준"],式神ID:1020}
+           */
+          arr.push(trueJson[i]);
+        }
+        // 过滤获取到的数据
+        arr.map(v=>{
+          searchInfo.push({
+            head_fang:v['式神方头像'],
+            name:v['式神名称'],
+          });
+        });
+        that.setData({
+          rawData:searchInfo,
+          searchInfo
+        });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getInputValue:function(e){
+    this.setData({
+      inputValue:e.detail.value,
+      searchInfo:this.data.rawData
+    });
+    // console.log(this.data.inputValue);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  search:function(){
+    var keyword = new RegExp(this.data.inputValue);
+    var arr = this.data.searchInfo;
+    var searchInfo = [];
+    for(var i =0;i < arr.length;i++){
+      if(arr[i]['name'].match(keyword)!=null){
+        searchInfo.push(arr[i]);
+      }
+    }
+    console.log(searchInfo);
+    this.setData({
+      searchInfo
+    });
   }
 })

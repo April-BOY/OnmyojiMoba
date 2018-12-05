@@ -1,2 +1,32 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<!-- pages/search/search.wxml -->
+<view class="tab">
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab01_151a2e5.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab02_edba940.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab03_2f3aafc.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab04_4a0fbfa.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab05_ffda62e.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab06_8f4d2b1.png" />
+    <image class="tab-sub-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/icon01_5258d43.png" />
+    <image class="tab-img" src="https://moba.res.netease.com/pc/zt/20171216152639/img/part3_tab07_a65d8da.png" />
+</view>
+<view class="search-box">
+    <input bindinput="getInputValue" bindconfirm="search" class="search-txt" />
+    <view bindtap="search" class="search-btn"></view>
+</view>
+<view class="search-result">
+        <scroll-view class="thumbnail-list" scroll-y="{{true}}">
+            <view class="thumbnail-box">
+                <view wx:for="{{searchInfo}}" wx:key="{{index}}" class="thumbnail">
+                    <view class="img-wrap">
+                        <image class="thumbnail-img" src="{{url+item.head_fang}}" />
+                    </view>
+                    <text class="thumbnail-desc">{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+</view>
