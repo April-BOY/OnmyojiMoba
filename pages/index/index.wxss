@@ -1,10 +1,10 @@
 @import "../common/indicators/indicators.wxss";
 @import "../common//thumbnail//thumbnail.wxss";
 /* public style */
-  page{
+  /* page{
   font-family: "Microsoft Yahei";
   background: #4a4388;
-}
+} */
 /* tab style */
 .tab{
   display: flex;
@@ -37,17 +37,16 @@
   border:15rpx solid transparent;
   border-top-color: #fff1de;
 }
-.qxpf{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.qxpf .img{
+  display: block;
+  width: 552rpx;
+  height: 550rpx;
+  margin: 0 auto;
 }
 .qxpf .img-desc{
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   padding: 20rpx 0 16rpx 90rpx;
+  margin-bottom: 24rpx;
   line-height: 1.6;
   background: #322c68;
 }
@@ -61,12 +60,8 @@
   border:15rpx solid transparent;
   border-bottom-color: #322c68;
 }
-.qxpf .img{
-  width: 552rpx;
-  height: 550rpx;
-  text-align: center;
-}
 .qxpf .tit{
+  display: block;
   font-size: 36rpx;
   font-weight: 700;
   color: #fff;
@@ -77,10 +72,9 @@
 }
 
 .pifu-list{
-  /* display: flex; */
   width: 650rpx;
-  height: 364rpx;
-  margin-top: 45rpx;
+  height: 240rpx;
+  margin:0 auto;
   text-align: center;
   white-space: nowrap;
 }
@@ -123,7 +117,7 @@
 .ss-ul{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   flex-wrap: wrap;
   padding-top: 40rpx;
   margin-bottom: 30rpx;
@@ -137,7 +131,7 @@
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_role_avatar_05d3105.png) no-repeat;
 }
 /* 周免式神样式 */
-.zmss .btn-more{
+.btn-more{
   width: 482rpx;
   height: 80rpx;
   margin:0 auto;

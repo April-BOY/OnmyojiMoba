@@ -30,7 +30,7 @@ Page({
 	onLoad: function() {
 		var that = this;
 		wx.request({
-			// url: 'https://comp-sync.webapp.163.com/g78_hero/free_convey?callback=jQuery111308366921136572285_1540169781437&_=1540169781439',
+      // 获取式神皮肤数据的接口
 			url: 'https://sixhorse.game.163.com/news/outer/newslist.do?callback=jQuery111305420124445720846_1540285706302&contentkind=29513&_=1540285706303',
 			header: {
 				'content-type': 'application/json',
@@ -69,7 +69,6 @@ Page({
           currentDesc:that.data.piFuInfo[0]['comment'],
           currentId:that.data.piFuInfo[0]['id']
         });
-        console.log(that.data.piFuInfo);
       }
     });
   },

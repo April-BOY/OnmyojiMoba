@@ -1,8 +1,8 @@
 @import "../common/indicators/indicators.wxss";
 @import "../common/rankitem/rankitem.wxss";
 page{
-  font-family: "Microsoft Yahei";
-  background: #4a4388;
+  /* font-family: "Microsoft Yahei";
+  background: #4a4388; */
   font-size: 27rpx;
   color: #fff;
 }
