@@ -1,4 +1,3 @@
-// let util = require('../../utils/util.js');
 import {unicodeToJson} from '../../utils/util.js';
 Page({
 	data: {

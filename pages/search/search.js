@@ -41,6 +41,7 @@ Page({
     });
   },
   getInputValue:function(e){
+    // 获取搜索框的输入内容
     this.setData({
       inputValue:e.detail.value,
       searchInfo:this.data.rawData
@@ -48,6 +49,7 @@ Page({
     // console.log(this.data.inputValue);
   },
   search:function(){
+    // 模糊搜索功能
     var keyword = new RegExp(this.data.inputValue);
     var arr = this.data.searchInfo;
     var searchInfo = [];
@@ -60,5 +62,10 @@ Page({
     this.setData({
       searchInfo
     });
+  },
+  navigateTodetail:function(){
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
   }
 })
