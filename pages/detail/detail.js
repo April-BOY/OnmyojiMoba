@@ -8,13 +8,6 @@ function initChart(canvas, width, height) {
     canvas.setChart(chart);
   
     var option = {
-            
-        title:{
-            text:'式神五维图'
-        },
-        legend:{
-            data:'评分'
-        },
         radar:[{
                 indicator:[
                     {text:'S 输出',max:6},
@@ -23,21 +16,35 @@ function initChart(canvas, width, height) {
                     {text:'控制 S',max:6},
                     {text:'B 敏捷',max:6}
                 ],
-                center:['50%','60%'],
-                radius:120,
+                center:['50%','50%'],
+                radius:75,
+                splitNumber:4,
+                splitArea:{
+                  show:false
+                },
                 name:{
                     textStyle:{
-                        fontSize:60,
+                        fontSize:15,
                         color:'#fff'
                     }
                 }
             }],
         series:[{
             type:'radar',
-            data:{
-                    value:[5,1,3,5,3],
-                    name:'评分',
+            symbolSize:4,//拐点的大小
+            itemStyle: {
+              normal: {
+                // color: 'rgba(107, 45, 16)',
+                areaStyle: {
+                  color: 'rgba(161, 109, 87,.8)'
                 }
+              }
+            },
+            data:[
+                {
+                    value:[5.8,1,3,5,3]
+                }
+            ]
             }]
 
         };

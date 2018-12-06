@@ -2,11 +2,10 @@ video{
     width: 100%;
 }
 .container{
-    width: 100%;
     height: 500rpx;
 }
 ec-canvas{
-    width: 100%;
+    width: 85%;
 }
 .ss-overview{
     padding: 50rpx 70rpx;
