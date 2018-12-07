@@ -29,7 +29,13 @@
 	</view>
 	<view wx:if="{{currentIndex==1}}">
 		<view class="ss-ul">
-			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" wx:if="{{item['新式神']}}" class="ss-li">
+			<view class="ss-li"
+				wx:for="{{shiShenLuInfo}}"
+				wx:key="{{index}}"
+				wx:if="{{item['新式神']}}"
+				data-id="{{item['式神ID']}}"
+				bindtap="navigateTodetail"
+				>
 				<template is="thumbnailTemplate" data="{{url,item}}"></template>
 			</view>
 		</view>
@@ -37,7 +43,13 @@
 	</view>
 	<view wx:if="{{currentIndex==2}}">
 		<view class="ss-ul">
-			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" wx:if="{{item['是否长期限免'] && item['是否限免']}}" class="ss-li">
+			<view class="ss-li"
+				wx:for="{{shiShenLuInfo}}"
+				wx:key="{{index}}"
+				wx:if="{{item['是否长期限免'] && item['是否限免']}}"
+				data-id="{{item['式神ID']}}"
+				bindtap="navigateTodetail"
+				>
 				<template is="thumbnailTemplate" data="{{url,item}}"></template>
 			</view>
 		</view>
@@ -45,7 +57,12 @@
 	</view>
 	<view wx:if="{{currentIndex==3}}">
 		<view class="ss-ul">
-			<view wx:for="{{shiShenLuInfo}}" wx:key="{{index}}" class="ss-li">
+			<view class="ss-li"
+				wx:for="{{shiShenLuInfo}}"
+				wx:key="{{index}}"
+				data-id="{{item['式神ID']}}"
+				bindtap="navigateTodetail"
+				>
 				<template is="thumbnailTemplate" data="{{url,item}}"></template>
 			</view>
 		</view>
