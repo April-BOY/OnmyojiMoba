@@ -27,20 +27,12 @@ ec-canvas{
     border-bottom: 1rpx dashed #a087af;
     padding-bottom: 23rpx;
 }
-/* .dash:after{
-    content: '';
-    display: block;
-} */
 .ss-overview .cv{
     font-weight: 700;
     line-height: 65rpx
 }
 .ss-overview .avatar{
     display: block;
-  
-    /* width: 308rpx; */
-    /* height: 308rpx; */
-    /* line-height: 308rpx; */
     height: 235rpx;
     line-height: 235rpx;
     padding-top: 12rpx;
@@ -55,7 +47,6 @@ ec-canvas{
     border-radius: 50%
 }
 .ss-info .dash{
-    /* padding-bottom: 23rpx; */
     line-height: 100rpx;
     border-bottom: 1rpx dashed #a087af;
 }

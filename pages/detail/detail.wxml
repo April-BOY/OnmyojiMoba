@@ -1,23 +1,23 @@
 <view class="video">
-    <video src="https://moba.v.netease.com/ssl/idle/1003.mp4?v20" autoplay="{{true}}" loop="{{true}}" controls="{{false}}"/>
+    <video wx:if="{{!singleData.new}}" src="https://moba.v.netease.com/ssl/idle/{{singleData.id}}.mp4?v20" autoplay="{{true}}" loop="{{true}}" controls="{{false}}" objectFit="fill"/>
 </view>
 <view class="ss-overview">
-    <text class="overview-word-pub name">大天狗</text>
+    <text class="overview-word-pub name">{{singleData.name}}</text>
     <view class="cv-box">
-        <text class="overview-word-pub cv">日文CV：前野智昭</text>
-        <text class="overview-word-pub cv">中文CV：夏磊</text>
+        <text class="overview-word-pub cv">日文CV：{{singleData.japanCV}}</text>
+        <text class="overview-word-pub cv">中文CV：{{singleData.chinaCV}}</text>
     </view>
     <view class="avatar">
-        <image class="head-circle" src="https://g.fp.ps.netease.com/doraemon/file/5aa21ed420e3db569715d1c3487usb70?fop=imageView/0/w/100/h/100"/>
+        <image class="head-circle" src="{{singleData.head_fang}}"/>
     </view>
     <view class="container">
         <ec-canvas id="mychart-dom-detail" canvas-id="mychart-detail" ec="{{ec}}"></ec-canvas>
     </view>
     <view class="ss-info">
-        <text class="overview-word-pub dash position"><text class="tit">位置</text>：巫</text>
-        <text class="overview-word-pub dash advance"><text class="tit">特长</text>：爆发/控制</text>
-        <text class="overview-word-pub dash rem-path"><text class="tit">推荐路线</text>：中路</text>
-        <text class="overview-word-pub dash diff"><text class="tit">难度</text>：<text class="cube on"></text><text class="cube"></text><text class="cube"></text><text class="cube"></text><text class="cube"></text></text>
-        <text class="overview-word-pub tip"><text class="tit">使用技巧</text>：尽量保证自身有3技能的护盾时进行战斗；利用连续技能命中触发被动伤害和减速效果消耗敌人；在对手被控制的情况下，让其难以轻松离开大招的范围，受到巨额的伤害。</text>
+        <text class="overview-word-pub dash"><text class="tit">位置</text>：{{singleData.position}}</text>
+        <text class="overview-word-pub dash"><text class="tit">特长</text>：{{singleData.tag}}</text>
+        <text class="overview-word-pub dash"><text class="tit">推荐路线</text>：{{singleData.path}}</text>
+        <text class="overview-word-pub dash"><text class="tit">难度</text>：<text wx:for="{{cubeOn}}" wx:key="{{key}}" class="cube on"></text><text wx:for="{{cubeOff}}" wx:key="{{key}}" class="cube "></text></text>
+        <text class="overview-word-pub tip"><text class="tit">使用技巧</text>：{{singleData.tip}}</text>
     </view>
 </view>

@@ -9,35 +9,20 @@ Page({
     inputValue:'',
     searchResult:[]
   },
-  onLoad: function (options) {
-    var that = this;
-    wx.request({
-      // 获取所有式神数据的接口
-      url: 'https://comp-sync.webapp.163.com/g78_hero/free_convey?callback=jQuery111308366921136572285_1540169781437&_=1540169781439',
-    	success: function(res) {
-    		var shishenluJson = unicodeToJson(res.data);
-        var arr = [];
-        var searchInfo = [];
-        var trueJson = shishenluJson.data;
-        for(var i in trueJson){
-          /**
-           * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
-           * 1 {cv名字:(4) ["立花慎之介", "边江", "Crispin Freeman", "김명준"],式神ID:1020}
-           */
-          arr.push(trueJson[i]);
-        }
-        // 过滤获取到的数据
-        arr.map(v=>{
-          searchInfo.push({
-            head_fang:v['式神方头像'],
-            name:v['式神名称'],
-          });
-        });
-        that.setData({
-          rawData:searchInfo,
-          searchInfo
-        });
-      }
+  onLoad: function () {
+    var arr = wx.getStorageSync('shishen')
+    var searchInfo = [];
+    // 过滤获取到的数据
+    arr.map(v=>{
+      searchInfo.push({
+        head_fang:v['式神方头像'],
+        name:v['式神名称'],
+        id:v['式神ID']
+      });
+    });
+    this.setData({
+      rawData:searchInfo,
+      searchInfo
     });
   },
   getInputValue:function(e){
@@ -46,7 +31,6 @@ Page({
       inputValue:e.detail.value,
       searchInfo:this.data.rawData
     });
-    // console.log(this.data.inputValue);
   },
   search:function(){
     // 模糊搜索功能
@@ -58,14 +42,14 @@ Page({
         searchInfo.push(arr[i]);
       }
     }
-    console.log(searchInfo);
     this.setData({
       searchInfo
     });
   },
-  navigateTodetail:function(){
+  navigateTodetail:function(e){
+    console.log();
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '../detail/detail?id='+e.currentTarget.dataset.id
     })
   }
 })

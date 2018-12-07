@@ -43,10 +43,6 @@ Page({
 					var trueJson = shiShenJson.data;
 					// console.log(trueJson);
 					for(var i in trueJson){
-						/**
-						 * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
-						 * 1 {cv名字:(4) ["立花慎之介", "边江", "Crispin Freeman", "김명준"],式神ID:1020}
-						 */
 						arr.push(trueJson[i]);
 					}
 					// console.log(arr)
@@ -54,8 +50,12 @@ Page({
 						shiShenInfo:arr
 					});
 					
+					
+				},
+				complete:function(){
 					that.rate();
 				}
+
 			});
 	},
 	rate:function(){

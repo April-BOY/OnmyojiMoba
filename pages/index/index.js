@@ -37,10 +37,15 @@ Page({
 			},
 			responseType: "text",
 			success: function(res) {
-				var pifuJson = unicodeToJson(res.data);
+        var pifuJson = unicodeToJson(res.data);
+        if(!pifuJson){
+          wx.showToast({title:'数据请求失败'});
+        }
 				that.setData({
-					piFuInfo: pifuJson.result,
+          piFuInfo: pifuJson.result
         });
+      },
+      complete:function(){
         that.requestShiShenData();
       }
 	});
@@ -54,6 +59,7 @@ Page({
     		var shishenluJson = unicodeToJson(res.data);
         var arr = [];
         var trueJson = shishenluJson.data;
+        console.log(trueJson);
         for(var i in trueJson){
           /**
            * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
@@ -62,12 +68,23 @@ Page({
           arr.push(trueJson[i]);
         }
         that.setData({
-          shiShenLuInfo:arr,
-          currentPifuUrl:that.data.piFuInfo[0]['imageUrl'],
-          currentTit:that.data.piFuInfo[0]['title'],
-          currentDesc:that.data.piFuInfo[0]['comment'],
-          currentId:that.data.piFuInfo[0]['id']
+          shiShenLuInfo:arr
+        },()=>{
+          // 将皮肤的初始化数据放在回调函数中，防止因为获取皮肤数据的接口出问题，导致式神的相关数据没有初始化
+          that.setData(
+            {
+              currentPifuUrl:that.data.piFuInfo[0]['imageUrl'],
+              currentTit:that.data.piFuInfo[0]['title'],
+              currentDesc:that.data.piFuInfo[0]['comment'],
+              currentId:that.data.piFuInfo[0]['id']
+            }
+          );
         });
+        if(wx.getStorageSync('shishen')){
+          return;
+        }else{
+          wx.setStorageSync('shishen', arr)
+        }
       }
     });
   },

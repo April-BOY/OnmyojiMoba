@@ -21,7 +21,7 @@
 <view class="search-result">
         <scroll-view class="thumbnail-list" scroll-y="{{true}}">
             <view class="thumbnail-box">
-                <view wx:for="{{searchInfo}}" wx:key="{{index}}" class="thumbnail" bindtap="navigateTodetail">
+                <view wx:for="{{searchInfo}}" wx:key="{{index}}" class="thumbnail" data-id="{{item.id}}" bindtap="navigateTodetail">
                     <view class="img-wrap">
                         <image class="thumbnail-img" src="{{url+item.head_fang}}" />
                     </view>
