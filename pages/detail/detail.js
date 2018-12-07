@@ -6,11 +6,10 @@ function initChart(canvas, width, height) {
       height: height
     });
     canvas.setChart(chart);
-  
     var option = {
         radar:[{
                 indicator:[
-                    {text:'控制 S',max:5},
+                  { text: control,max:5},
                     {text:'生存 D',max:5},
                     {text:'增益 A',max:5},
                     {text:'B 输出',max:5},
@@ -56,10 +55,10 @@ function initChart(canvas, width, height) {
 
         };
     chart.setOption(option);
-    var that = this;
-    console.log(that.data.singleData);
     return chart;
   }
+  // dataList必须声明在这里，声明在onLoad中则无法使用
+var dataList = [];
 Page({
     data:{
         singleData:{},
@@ -108,74 +107,93 @@ Page({
         }
         var cubeOn = new Array(singleData.diff);
         var cubeOff = new Array(5-singleData.diff);
-        var chart = this.onInit;
+        // var chart = this.onInit;
+        dataList = singleData.point;
+        this.ecComponent = this.selectComponent('#mychart-dom-detail');//获取组件
+        this.onInit();//初始化雷达图
         this.setData({
             singleData,
             cubeOn,
             cubeOff
         });
         console.log(this.data.singleData);
-
-
-
-        
-
     },
-    onInit:function(canvas, width, height){
-        const chart = echarts.init(canvas, null, {
+    setRadarIndicatorText:function(text){
+        switch (text) {
+          case 1:
+            return 'A';
+          case 2:
+            return 'B';
+          case 3:
+            return 'C';
+          case 4:
+            return 'D';
+          case 5:
+            return 'S';
+        }
+    },
+    onInit:function(){
+      var that = this;
+        this.ecComponent.init((canvas,width,height)=>{
+          const chart = echarts.init(canvas, null, {
             width: width,
             height: height
           });
           canvas.setChart(chart);
+          var control = that.setRadarIndicatorText(dataList[0]);
+          var live = that.setRadarIndicatorText(dataList[1]);
+          var plus = that.setRadarIndicatorText(dataList[2]);
+          var attack = that.setRadarIndicatorText(dataList[3]);
+          var agility = that.setRadarIndicatorText(dataList[4]);
           var option = {
-            radar:[{
-                    indicator:[
-                        {text:'控制 S',max:5},
-                        {text:'生存 D',max:5},
-                        {text:'增益 A',max:5},
-                        {text:'B 输出',max:5},
-                        {text:'C 敏捷',max:5}
-                    ],
-                    center:['50%','50%'],
-                    radius:'70%',
-                    startAngle:270,
-                    splitNumber:4,
-                    splitArea:{
-                      show:false
-                    },
-                    name:{
-                        textStyle:{
-                            fontSize:15,
-                            color:'#fff'
-                        }
-                    }
-                }],
-            series:[
-                {
-                    type:'radar',
-                    symbolSize:3,//拐点的大小
-                    lineStyle:{
-                        color:'rgba(238, 148, 131,.5)'
-                    },
-                    itemStyle: {
-                        normal: {
-                            borderWidth:0,
-                            areaStyle: {
-                            color: 'rgba(163, 129, 136,.9)'
-                            }
-                        }
-                    },
-                    data:[
-                        {
-                            value:[5,4,3,5,3]
-                            // value:this.data.singleData.point
-                        }
-                    ]
+            radar: [{
+              indicator: [
+                { text: '控制 '+control, max: 5 },
+                { text: '生存 '+live, max: 5 },
+                { text: '增益 '+plus, max: 5 },
+                { text: attack+' 输出', max: 5 },
+                { text: agility+' 敏捷', max: 5 }
+              ],
+              center: ['50%', '50%'],
+              radius: '70%',
+              startAngle: 270,
+              splitNumber: 4,
+              splitArea: {
+                show: false
+              },
+              name: {
+                textStyle: {
+                  fontSize: 15,
+                  color: '#fff'
                 }
+              }
+            }],
+            series: [
+              {
+                type: 'radar',
+                symbolSize: 3,//拐点的大小
+                lineStyle: {
+                  color: 'rgba(238, 148, 131,.5)'
+                },
+                itemStyle: {
+                  normal: {
+                    borderWidth: 0,
+                    areaStyle: {
+                      color: 'rgba(163, 129, 136,.9)'
+                    }
+                  }
+                },
+                data: [
+                  {
+                    value: dataList
+                  }
+                ]
+              }
             ]
-    
-            };
-        chart.setOption(option);
-        return chart;
+
+          };
+          chart.setOption(option);
+          return chart;
+        })
     }
 });

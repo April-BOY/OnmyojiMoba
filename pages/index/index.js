@@ -59,7 +59,6 @@ Page({
     		var shishenluJson = unicodeToJson(res.data);
         var arr = [];
         var trueJson = shishenluJson.data;
-        console.log(trueJson);
         for(var i in trueJson){
           /**
            * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
