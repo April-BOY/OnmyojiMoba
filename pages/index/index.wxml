@@ -1,71 +1,119 @@
+<skeleton 	selector="skeleton"
+			loading="chiaroscuro"
+			bgcolor="#4a4388"
+			wx:if="{{showSkeleton}}"
+></skeleton>
 <import src="../common/indicators/indicators.wxml"></import>
-<!-- <import src="../common/shishenlist/shishenlist.wxml"></import>
-<import src="../common/zmss/zmss.wxml"></import>
-<import src="../common/qbss/qbss.wxml"></import> -->
 <import src="../common/thumbnail/thumbnail.wxml"></import>
-<view class="tab" bindtap="tabTap">
-	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}">{{item.name}}</text>
-</view>
-<view>
-	<view wx:if="{{currentIndex==0}}" class="qxpf">
-		<image class="img" src="{{currentPifuUrl}}"></image>
-		<view class="img-desc">
-			<text class="tit">{{currentTit}}</text>
-			<text class="desc">上架时间：{{currentDesc}}</text>
-		</view>
-		<!-- <view class="pifu-list"> -->
-      <scroll-view class="pifu-list" scroll-x="{{true}}">
-		  <view wx:for="{{piFuInfo}}" wx:key="{{index}}"
-				  class="{{currentId == piFuInfo[index].id?'pifu-list-item active':'pifu-list-item'}}" 
-				  data-id="{{piFuInfo[index].id}}"
-				  data-pifuurl="{{piFuInfo[index].imageUrl}}"
-				  data-tit="{{piFuInfo[index].title}}"
-				  data-desc="{{piFuInfo[index].comment}}"
-				  bindtap="switchContent">
-            <text class="pifu-list-tit">{{item.subTitle}}</text>
-            <image class="pifu-list-img" src="{{item.imageUrl}}"></image>
-          </view>
-      </scroll-view>
+<view class="container skeleton">
+	<view class="tab" bindtap="tabTap">
+		<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}} skeleton-rect" data-index="{{index}}">{{item.name}}</text>
 	</view>
-	<view wx:if="{{currentIndex==1}}">
-		<view class="ss-ul">
-			<view class="ss-li"
-				wx:for="{{shiShenLuInfo}}"
-				wx:key="{{index}}"
-				wx:if="{{item['新式神']}}"
-				data-id="{{item['式神ID']}}"
-				bindtap="navigateTodetail"
-				>
-				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+	<view>
+		<view wx:if="{{currentIndex==0}}" class="qxpf">
+			<image class="img skeleton-rect" src="{{currentPifuUrl}}"></image>
+			<view class="img-desc">
+				<text class="tit skeleton-rect">{{currentTit}}</text>
+				<text class="desc skeleton-rect">上架时间：{{currentDesc}}</text>
 			</view>
+			<!-- <view class="pifu-list"> -->
+	      <scroll-view class="pifu-list" scroll-x="{{true}}">
+			  <view wx:for="{{piFuInfo}}" wx:key="{{index}}"
+					  class="{{currentId == piFuInfo[index].id?'pifu-list-item active':'pifu-list-item'}}" 
+					  data-id="{{piFuInfo[index].id}}"
+					  data-pifuurl="{{piFuInfo[index].imageUrl}}"
+					  data-tit="{{piFuInfo[index].title}}"
+					  data-desc="{{piFuInfo[index].comment}}"
+					  bindtap="switchContent">
+	            <text class="pifu-list-tit skeleton-rect">{{item.subTitle}}</text>
+	            <image class="pifu-list-img skeleton-rect" src="{{item.imageUrl}}"></image>
+	          </view>
+	      </scroll-view>
 		</view>
-		<template is="indicatorsTemplate"></template>
-	</view>
-	<view wx:if="{{currentIndex==2}}">
-		<view class="ss-ul">
-			<view class="ss-li"
-				wx:for="{{shiShenLuInfo}}"
-				wx:key="{{index}}"
-				wx:if="{{item['是否长期限免'] && item['是否限免']}}"
-				data-id="{{item['式神ID']}}"
-				bindtap="navigateTodetail"
-				>
-				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+		<view wx:if="{{currentIndex==1}}">
+			<view class="ss-ul">
+				<view class="ss-li"
+					wx:for="{{shiShenLuInfo}}"
+					wx:key="{{index}}"
+					wx:if="{{item['新式神']}}"
+					data-id="{{item['式神ID']}}"
+					bindtap="navigateTodetail"
+					>
+					<template is="thumbnailTemplate" data="{{url,item}}"></template>
+				</view>
 			</view>
+			<template is="indicatorsTemplate"></template>
 		</view>
-		<view class="btn-more"></view>
-	</view>
-	<view wx:if="{{currentIndex==3}}">
-		<view class="ss-ul">
-			<view class="ss-li"
-				wx:for="{{shiShenLuInfo}}"
-				wx:key="{{index}}"
-				data-id="{{item['式神ID']}}"
-				bindtap="navigateTodetail"
-				>
-				<template is="thumbnailTemplate" data="{{url,item}}"></template>
+		<view wx:if="{{currentIndex==2}}">
+			<view class="ss-ul">
+				<view class="ss-li"
+					wx:for="{{shiShenLuInfo}}"
+					wx:key="{{index}}"
+					wx:if="{{item['是否长期限免'] && item['是否限免']}}"
+					data-id="{{item['式神ID']}}"
+					bindtap="navigateTodetail"
+					>
+					<template is="thumbnailTemplate" data="{{url,item}}"></template>
+				</view>
 			</view>
+			<view class="btn-more"></view>
 		</view>
-		<template is="indicatorsTemplate"></template>
+		<view wx:if="{{currentIndex==3}}">
+			<scroll-view class="qbss" scroll-x="{{true}}">
+				<view class="qbss-item">
+					<view class="ss-ul">
+						<view class="ss-li"
+							wx:for="{{shiShenLuInfo}}"
+							wx:key="{{index}}"
+							wx:if="{{index<16}}"
+							data-id="{{item['式神ID']}}"
+							bindtap="navigateTodetail"
+							>
+							<template is="thumbnailTemplate" data="{{url,item}}"></template>
+						</view>
+					</view>
+				</view>
+				<view class="qbss-item">
+					<view class="ss-ul">
+						<view class="ss-li"
+							wx:for="{{shiShenLuInfo}}"
+							wx:key="{{index}}"
+							wx:if="{{index>16&&index<33}}"
+							data-id="{{item['式神ID']}}"
+							bindtap="navigateTodetail"
+							>
+							<template is="thumbnailTemplate" data="{{url,item}}"></template>
+						</view>
+					</view>
+				</view>
+				<view class="qbss-item">
+					<view class="ss-ul">
+						<view class="ss-li"
+							wx:for="{{shiShenLuInfo}}"
+							wx:key="{{index}}"
+							wx:if="{{index>33&&index<50}}"
+							data-id="{{item['式神ID']}}"
+							bindtap="navigateTodetail"
+							>
+							<template is="thumbnailTemplate" data="{{url,item}}"></template>
+						</view>
+					</view>
+				</view>
+				<view class="qbss-item">
+					<view class="ss-ul">
+						<view class="ss-li"
+							wx:for="{{shiShenLuInfo}}"
+							wx:key="{{index}}"
+							wx:if="{{index>50}}"
+							data-id="{{item['式神ID']}}"
+							bindtap="navigateTodetail"
+							>
+							<template is="thumbnailTemplate" data="{{url,item}}"></template>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+			<template is="indicatorsTemplate" data="{{indicators}}"></template>
+		</view>
 	</view>
 </view>

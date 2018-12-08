@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "式神录"
+  "navigationBarTitleText": "式神录",
+  "usingComponents":{
+    "skeleton":"../../component/skeleton/skeleton"
+  }
 }

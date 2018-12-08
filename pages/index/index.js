@@ -16,18 +16,30 @@ Page({
       }
     ],
     flag:false,
-		piFuInfo: [],
+		piFuInfo: [
+      {
+        subTitle:'fafeafaefaf',
+        imageUrl:'https://nie.res.netease.com/r/pic/20181122/439fdc2d-af27-4192-8d28-04b00c7737d2.png'
+      }
+    ],
     currentPifuUrl:"",
-    currentTit:"",
+    currentTit:"新皮肤",
     currentDesc:"",
 		currentId: "",
     currentIndex:0,
     shiShenLuInfo:[],
     // 获取式神录中图片的接口
-    url:"https://ok.166.net/gameyw-gbox/moba/"
+    url:"https://ok.166.net/gameyw-gbox/moba/",
+    showSkeleton:true,
+    indicators:[]
   },
 	onLoad: function() {
-		var that = this;
+    var that = this;
+    setTimeout(()=>{
+      that.setData({
+        showSkeleton:false
+      });
+    },1000);
 		wx.request({
       // 获取式神皮肤数据的接口
 			url: 'https://sixhorse.game.163.com/news/outer/newslist.do?callback=jQuery111305420124445720846_1540285706302&contentkind=29513&_=1540285706303',
@@ -48,7 +60,7 @@ Page({
       complete:function(){
         that.requestShiShenData();
       }
-	});
+  });
   },
   requestShiShenData:function(){
     var that = this;
@@ -60,10 +72,6 @@ Page({
         var arr = [];
         var trueJson = shishenluJson.data;
         for(var i in trueJson){
-          /**
-           * 0 {cv名字:(4) ["绿川光", "谢添天", "Liam Obrien", "강호철"],式神ID:1020}
-           * 1 {cv名字:(4) ["立花慎之介", "边江", "Crispin Freeman", "김명준"],式神ID:1020}
-           */
           arr.push(trueJson[i]);
         }
         that.setData({
@@ -78,12 +86,16 @@ Page({
               currentId:that.data.piFuInfo[0]['id']
             }
           );
+          console.log(that.data.piFuInfo[0]['imageUrl']);
         });
         if(wx.getStorageSync('shishen')){
           return;
         }else{
           wx.setStorageSync('shishen', arr)
         }
+      },
+      complete:function(){
+        that.setIndicators();
       }
     });
   },
@@ -105,5 +117,12 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id='+e.currentTarget.dataset.id
     })
+  },
+  setIndicators:function(){
+    var length = Math.ceil(this.data.shiShenLuInfo.length/16);
+    var indicators =new Array(length);
+    this.setData({
+      indicators
+    });
   }
 })

@@ -1,10 +1,6 @@
 @import "../common/indicators/indicators.wxss";
 @import "../common//thumbnail//thumbnail.wxss";
 /* public style */
-  /* page{
-  font-family: "Microsoft Yahei";
-  background: #4a4388;
-} */
 /* tab style */
 .tab{
   display: flex;
@@ -45,7 +41,7 @@
 }
 .qxpf .img-desc{
   position: relative;
-  padding: 20rpx 0 16rpx 90rpx;
+  padding: 20rpx 90rpx 16rpx 90rpx;
   margin-bottom: 24rpx;
   line-height: 1.6;
   background: #322c68;
@@ -86,6 +82,7 @@
   padding: 0 18rpx;
   margin: 0 6rpx 0 8rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cd721ae.jpg) no-repeat;
+  background-size: 100%
 }
 .pifu-list .pifu-list-item .pifu-list-tit{
   position: absolute;
@@ -109,6 +106,7 @@
 .pifu-list .pifu-list-item.active{
   width: 248rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cur_8774ff6.jpg) no-repeat;
+  background-size: 100%
 }
 .pifu-list .pifu-list-item.active .pifu-list-img{
   display: block;
@@ -116,7 +114,7 @@
 /* 全新式神、周免式神、全部式神公共样式 */
 .ss-ul{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   /* align-items: center; */
   flex-wrap: wrap;
   padding-top: 40rpx;
@@ -129,6 +127,7 @@
   padding: 2rpx;
   margin: 0 5rpx 75rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_role_avatar_05d3105.png) no-repeat;
+  background-size: 100%;
 }
 /* 周免式神样式 */
 .btn-more{
@@ -136,6 +135,15 @@
   height: 80rpx;
   margin:0 auto;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_5a17ab2.png) no-repeat;
+}
+.qbss{
+  width: 650rpx;
+  height: 910rpx;
+  margin: 0 auto;
+  white-space: nowrap
+}
+.qbss-item{
+  display: inline-block
 }
 /* .zmss .btn-more:hover{
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_hover_6c2b485.png) no-repeat;
