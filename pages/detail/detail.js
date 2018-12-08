@@ -1,62 +1,5 @@
-import * as echarts from '../ec-canvas/echarts';
+import * as echarts from '../../component/ec-canvas/echarts';
 
-function initChart(canvas, width, height) {
-    const chart = echarts.init(canvas, null, {
-      width: width,
-      height: height
-    });
-    canvas.setChart(chart);
-    var option = {
-        radar:[{
-                indicator:[
-                  { text: control,max:5},
-                    {text:'生存 D',max:5},
-                    {text:'增益 A',max:5},
-                    {text:'B 输出',max:5},
-                    {text:'C 敏捷',max:5}
-                ],
-                center:['50%','50%'],
-                radius:'70%',
-                startAngle:270,
-                splitNumber:4,
-                splitArea:{
-                  show:false
-                },
-                name:{
-                    textStyle:{
-                        fontSize:15,
-                        color:'#fff'
-                    }
-                }
-            }],
-        series:[
-            {
-                type:'radar',
-                symbolSize:3,//拐点的大小
-                lineStyle:{
-                    color:'rgba(238, 148, 131,.5)'
-                },
-                itemStyle: {
-                    normal: {
-                        borderWidth:0,
-                        areaStyle: {
-                        color: 'rgba(163, 129, 136,.9)'
-                        }
-                    }
-                },
-                data:[
-                    {
-                        value:[5,4,3,5,3]
-                        // value:this.data.singleData.point
-                    }
-                ]
-            }
-        ]
-
-        };
-    chart.setOption(option);
-    return chart;
-  }
   // dataList必须声明在这里，声明在onLoad中则无法使用
 var dataList = [];
 Page({
@@ -107,7 +50,6 @@ Page({
         }
         var cubeOn = new Array(singleData.diff);
         var cubeOff = new Array(5-singleData.diff);
-        // var chart = this.onInit;
         dataList = singleData.point;
         this.ecComponent = this.selectComponent('#mychart-dom-detail');//获取组件
         this.onInit();//初始化雷达图
@@ -116,18 +58,17 @@ Page({
             cubeOn,
             cubeOff
         });
-        console.log(this.data.singleData);
     },
     setRadarIndicatorText:function(text){
         switch (text) {
           case 1:
-            return 'A';
-          case 2:
-            return 'B';
-          case 3:
-            return 'C';
-          case 4:
             return 'D';
+          case 2:
+            return 'C';
+          case 3:
+            return 'B';
+          case 4:
+            return 'A';
           case 5:
             return 'S';
         }

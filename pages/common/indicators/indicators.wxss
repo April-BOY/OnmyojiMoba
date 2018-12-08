@@ -12,6 +12,6 @@
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/spriter/index_z_763632d.png) no-repeat;
   background-position: -1386rpx -236rpx;
 }
-.list-box-control .indicator.on{
+.list-box-control .on{
   background-position: -1420rpx -236rpx;
 }

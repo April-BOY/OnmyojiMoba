@@ -60,10 +60,12 @@ page{
   content: '';
   position: absolute;
   top: 50%;
-  width: 14rpx;
-  height: 8rpx;
-  margin-top: -8rpx;
-  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_up_8259726.png) no-repeat;
+  width: 0;
+  height: 0;
+  margin-top: -17rpx;
+  /* background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_up_8259726.png) no-repeat; */
+  border:9rpx solid transparent;
+  border-bottom-color: #fff;
   opacity: .5;
 }
 .sub-tab .sub-tab-pane-2:before{
@@ -77,9 +79,14 @@ page{
   content: '';
   position: absolute;
   top: 51%;
-  width: 14rpx;
+  /* width: 14rpx;
   height: 8rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_down_570e114.png) no-repeat;
+  background-size: 100%; */
+  width: 0;
+  height: 0;
+  border:9rpx solid transparent;
+  border-top-color: #fff;
   opacity: .5;
 }
 .sub-tab .sub-tab-pane-2:after{
@@ -106,6 +113,13 @@ page{
 }
 .list-box{
   margin-top: 26rpx;
+}
+.list-scroll{
+  height: 910rpx;
+  white-space: nowrap;
+}
+.list{
+  display: inline-block
 }
 .list .list-item{
   /* display: flex; */

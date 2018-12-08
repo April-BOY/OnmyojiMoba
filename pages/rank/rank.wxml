@@ -9,11 +9,11 @@
 	<text class="{{isPickRate?'sub-tab-pane-3 up':'sub-tab-pane-3 down'}}" catchtap="togglePickRate" data-rate="pickrate">出场率</text>
 </view>
 <view wx:if="{{currentIndex==0}}" class="list-box">
-	<view class="list">
-		<view class="list-item" wx:for="{{rankData}}" wx:key="index">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+		<view class="list">
+			<view class="list-item" wx:for="{{rankData}}" wx:key="index">
+				<template is="rankitemTemplate" data="{{url,item}}"></template>
+			</view>
 		</view>
-	</view>
 </view>
 <view wx:if="{{currentIndex==1}}" class="list-box">
 	<view class="list">

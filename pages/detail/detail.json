@@ -1,6 +1,6 @@
 {
     "navigationBarTitleText": "式神御魂",
     "usingComponents":{
-        "ec-canvas":"../ec-canvas/ec-canvas"
+        "ec-canvas":"../../component/ec-canvas/ec-canvas"
     }
 }
