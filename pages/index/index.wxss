@@ -7,7 +7,6 @@
   height: 93rpx;
   text-align: center;
   border-bottom: 1px solid #605b96;
-  z-index: 10;
 }
 .tab .tabitem{
   flex: 1;
@@ -69,7 +68,7 @@
 
 .pifu-list{
   width: 650rpx;
-  height: 240rpx;
+  height: 250rpx;
   margin:0 auto;
   text-align: center;
   white-space: nowrap;
@@ -78,11 +77,16 @@
   position: relative;
   display: inline-block;
   width: 28rpx;
-  height: 240rpx;
+  height: 242rpx;
   padding: 0 18rpx;
   margin: 0 6rpx 0 8rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cd721ae.jpg) no-repeat;
-  background-size: 100%
+  background-size: contain
+}
+.pifu-list .pifu-list-item.active{
+  width: 248rpx;
+  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cur_8774ff6.jpg) no-repeat;
+  background-size: contain
 }
 .pifu-list .pifu-list-item .pifu-list-tit{
   position: absolute;
@@ -102,11 +106,6 @@
   display: none;
   width: 238rpx;
   height: 236rpx;
-}
-.pifu-list .pifu-list-item.active{
-  width: 248rpx;
-  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cur_8774ff6.jpg) no-repeat;
-  background-size: 100%
 }
 .pifu-list .pifu-list-item.active .pifu-list-img{
   display: block;
@@ -131,16 +130,22 @@
 }
 /* 周免式神样式 */
 .btn-more{
-  width: 482rpx;
-  height: 80rpx;
+  width: 561rpx;
+  height: 87rpx;
   margin:0 auto;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_5a17ab2.png) no-repeat;
+  background-size: 100%
 }
 .qbss{
   width: 650rpx;
   height: 910rpx;
   margin: 0 auto;
   white-space: nowrap
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent
 }
 .qbss-item{
   display: inline-block

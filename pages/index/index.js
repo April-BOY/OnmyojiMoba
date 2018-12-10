@@ -1,4 +1,5 @@
 import {unicodeToJson} from '../../utils/util.js';
+import {icon} from '../../images/icon.js';
 Page({
 	data: {
     tab:[
@@ -16,30 +17,20 @@ Page({
       }
     ],
     flag:false,
-		piFuInfo: [
-      {
-        subTitle:'fafeafaefaf',
-        imageUrl:'https://nie.res.netease.com/r/pic/20181122/439fdc2d-af27-4192-8d28-04b00c7737d2.png'
-      }
-    ],
+		piFuInfo: [],
     currentPifuUrl:"",
-    currentTit:"新皮肤",
+    currentTit:"",
     currentDesc:"",
 		currentId: "",
     currentIndex:0,
     shiShenLuInfo:[],
     // 获取式神录中图片的接口
     url:"https://ok.166.net/gameyw-gbox/moba/",
-    showSkeleton:true,
-    indicators:[]
+    indicators:[],
+    icon
   },
 	onLoad: function() {
     var that = this;
-    setTimeout(()=>{
-      that.setData({
-        showSkeleton:false
-      });
-    },1000);
 		wx.request({
       // 获取式神皮肤数据的接口
 			url: 'https://sixhorse.game.163.com/news/outer/newslist.do?callback=jQuery111305420124445720846_1540285706302&contentkind=29513&_=1540285706303',
@@ -75,7 +66,8 @@ Page({
           arr.push(trueJson[i]);
         }
         that.setData({
-          shiShenLuInfo:arr
+          shiShenLuInfo:arr,
+          icon
         },()=>{
           // 将皮肤的初始化数据放在回调函数中，防止因为获取皮肤数据的接口出问题，导致式神的相关数据没有初始化
           that.setData(
@@ -86,7 +78,6 @@ Page({
               currentId:that.data.piFuInfo[0]['id']
             }
           );
-          console.log(that.data.piFuInfo[0]['imageUrl']);
         });
         if(wx.getStorageSync('shishen')){
           return;
@@ -116,6 +107,11 @@ Page({
   navigateTodetail:function(e){
     wx.navigateTo({
       url: '../detail/detail?id='+e.currentTarget.dataset.id
+    })
+  },
+  navigateToSearch:function(){
+    wx.switchTab({
+      url: '../search/search'
     })
   },
   setIndicators:function(){

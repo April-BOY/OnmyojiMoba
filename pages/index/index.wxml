@@ -1,20 +1,15 @@
-<skeleton 	selector="skeleton"
-			loading="chiaroscuro"
-			bgcolor="#4a4388"
-			wx:if="{{showSkeleton}}"
-></skeleton>
 <import src="../common/indicators/indicators.wxml"></import>
 <import src="../common/thumbnail/thumbnail.wxml"></import>
 <view class="container skeleton">
 	<view class="tab" bindtap="tabTap">
-		<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}} skeleton-rect" data-index="{{index}}">{{item.name}}</text>
+		<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}">{{item.name}}</text>
 	</view>
 	<view>
 		<view wx:if="{{currentIndex==0}}" class="qxpf">
-			<image class="img skeleton-rect" src="{{currentPifuUrl}}"></image>
+			<image class="img" src="{{currentPifuUrl}}"></image>
 			<view class="img-desc">
-				<text class="tit skeleton-rect">{{currentTit}}</text>
-				<text class="desc skeleton-rect">上架时间：{{currentDesc}}</text>
+				<text class="tit">{{currentTit}}</text>
+				<text class="desc">上架时间：{{currentDesc}}</text>
 			</view>
 			<!-- <view class="pifu-list"> -->
 	      <scroll-view class="pifu-list" scroll-x="{{true}}">
@@ -25,8 +20,8 @@
 					  data-tit="{{piFuInfo[index].title}}"
 					  data-desc="{{piFuInfo[index].comment}}"
 					  bindtap="switchContent">
-	            <text class="pifu-list-tit skeleton-rect">{{item.subTitle}}</text>
-	            <image class="pifu-list-img skeleton-rect" src="{{item.imageUrl}}"></image>
+	            <text class="pifu-list-tit">{{item.subTitle}}</text>
+	            <image class="pifu-list-img" src="{{item.imageUrl}}"></image>
 	          </view>
 	      </scroll-view>
 		</view>
@@ -56,7 +51,7 @@
 					<template is="thumbnailTemplate" data="{{url,item}}"></template>
 				</view>
 			</view>
-			<view class="btn-more"></view>
+			<view class="btn-more" catchtap="navigateToSearch"></view>
 		</view>
 		<view wx:if="{{currentIndex==3}}">
 			<scroll-view class="qbss" scroll-x="{{true}}">
@@ -113,7 +108,7 @@
 					</view>
 				</view>
 			</scroll-view>
-			<template is="indicatorsTemplate" data="{{indicators}}"></template>
+			<template is="indicatorsTemplate" data="{{indicators,icon}}"></template>
 		</view>
 	</view>
 </view>
