@@ -40,11 +40,12 @@
 			<template is="indicatorsTemplate"></template>
 		</view>
 		<view wx:if="{{currentIndex==2}}">
+			<text class="time">{{weekFreeTime}}</text>
 			<view class="ss-ul">
 				<view class="ss-li"
 					wx:for="{{shiShenLuInfo}}"
 					wx:key="{{index}}"
-					wx:if="{{item['是否长期限免'] && item['是否限免']}}"
+					wx:if="{{item['是否长期限免'] || item['限免开始时间']==freeTime}}"
 					data-id="{{item['式神ID']}}"
 					bindtap="navigateTodetail"
 					>

@@ -128,6 +128,19 @@
   background-size: 100%;
 }
 /* 周免式神样式 */
+.time{
+  display: block;
+  width: 90%;
+  height: 76rpx;
+  margin: 20rpx auto 0;
+  font-size: 38rpx;
+  text-align: center;
+  text-indent: 95rpx;
+  line-height: 76rpx;
+  color: #ffdaa6;
+  background: url(https://moba.res.netease.com/m/zt/20171216180055/img/time_bg_b644224.png) no-repeat;
+  background-size: 100%
+}
 .btn-more{
   width: 561rpx;
   height: 87rpx;

@@ -1,4 +1,4 @@
-import {unicodeToJson} from '../../utils/util.js';
+import {unicodeToJson,formatTime} from '../../utils/util.js';
 import {icon} from '../../images/icon.js';
 Page({
 	data: {
@@ -26,6 +26,8 @@ Page({
     shiShenLuInfo:[],
     // 获取式神录中图片的接口
     url:"https://ok.166.net/gameyw-gbox/moba/",
+    freeTime:'',
+    weekFreeTime:'',
     indicators:[],
     icon
   },
@@ -79,6 +81,7 @@ Page({
             }
           );
         });
+        console.log(that.data.shiShenLuInfo);
         if(wx.getStorageSync('shishen')){
           return;
         }else{
@@ -87,6 +90,9 @@ Page({
       },
       complete:function(){
         that.setIndicators();
+        if(new Date().getDay()===1){
+          that.getWeekFreeTime();
+        }
       }
     });
   },
@@ -108,6 +114,19 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id='+e.currentTarget.dataset.id
     })
+  },
+  getWeekFreeTime:function(){
+    var d = new Date();
+    var timeStr = formatTime(d);
+    var freeTime = timeStr+' 05:00:00'
+    console.log(freeTime);
+    var freeMonth = timeStr.split('-')[1]+'月';
+    var freeDay = timeStr.split('-')[2];
+    var weekFreeTime = freeMonth+freeDay+'日-'+freeMonth+(parseInt(freeDay)+6)+'日'; 
+    this.setData({
+      freeTime,
+      weekFreeTime
+    });
   },
   navigateToSearch:function(){
     wx.switchTab({

@@ -35,3 +35,17 @@ export function toggleRate(rankData,isUpRate,rate){
 	}
 	return arr;
 }
+
+export function formatTime(d){
+		var year =d.getFullYear();
+		var month = ''+(d.getMonth()+1);
+		var day =''+d.getDate();
+		if(month.length<2){
+		month='0'+month;
+		}
+		if(day.length<2){
+		day='0'+day;
+		}
+      return [year,month,day].join('-');
+    
+}
