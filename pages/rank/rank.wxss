@@ -1,16 +1,18 @@
 @import "../common/indicators/indicators.wxss";
 @import "../common/rankitem/rankitem.wxss";
 page{
-  /* font-family: "Microsoft Yahei";
-  background: #4a4388; */
   font-size: 27rpx;
   color: #fff;
 }
 .tab{
+  position: fixed;
+  top: 0;
   display: flex;
+  width: 100%;
   height: 93rpx;
-  /* text-align: center; */
   border-bottom: 1px solid #605b96;
+  background: #4a4388;
+  z-index: 10;
 }
 .tab .tabitem{
   flex: 1;
@@ -38,6 +40,7 @@ page{
 .sub-tab{
   display: block;
   height: 100rpx;
+  padding-top: 93rpx;
   line-height: 100rpx;
   border-bottom: 1rpx dashed #8d8ba6;
 }
@@ -54,7 +57,7 @@ page{
 .sub-tab .sub-tab-pane-3{
   position: relative;
   display: inline-block;
-  width: 119rpx;
+  width: 118rpx;
 }
 .sub-tab .sub-tab-pane-2:before,.sub-tab .sub-tab-pane-3:before{
   content: '';
@@ -63,7 +66,6 @@ page{
   width: 0;
   height: 0;
   margin-top: -17rpx;
-  /* background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_up_8259726.png) no-repeat; */
   border:9rpx solid transparent;
   border-bottom-color: #fff;
   opacity: .5;
@@ -79,10 +81,6 @@ page{
   content: '';
   position: absolute;
   top: 51%;
-  /* width: 14rpx;
-  height: 8rpx;
-  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/jieshuo/icon_down_570e114.png) no-repeat;
-  background-size: 100%; */
   width: 0;
   height: 0;
   border:9rpx solid transparent;
@@ -122,11 +120,9 @@ page{
   display: inline-block
 }
 .list .list-item{
-  /* display: flex; */
   height: 76rpx;
   line-height: 76rpx;
   padding-top: 8rpx;
-  /* line-height: 76rpx; */
   text-align: center;
 }
 .list .list-item:nth-of-type(2n+1){

@@ -1,60 +1,66 @@
+<skeleton 	selector="skeleton"
+			loading="chiaroscuro"
+			bgcolor="#4a4388"
+			wx:if="{{showSkeleton}}"
+></skeleton>
 <import src="../common/indicators/indicators.wxml"></import>
 <import src="../common/rankitem/rankitem.wxml"></import>
-<view class="tab">
-	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}}" data-index="{{index}}" bindtap="tabTap">{{item.name}}</text>
+<view class="skeleton">
+	<view class="tab">
+	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}} skeleton-rect" data-index="{{index}}" bindtap="tabTap">{{item.name}}</text>
 </view>
 <view class="sub-tab">
-	<text class="sub-tab-pane-1">数据每周五12:00更新</text>
-	<text class="{{isUpRate?'sub-tab-pane-2 up':'sub-tab-pane-2 down'}}" catchtap="toggleWinRate" data-rate="winrate">胜率</text>
-	<text class="{{isPickRate?'sub-tab-pane-3 up':'sub-tab-pane-3 down'}}" catchtap="togglePickRate" data-rate="pickrate">出场率</text>
+	<text class="sub-tab-pane-1 skeleton-rect">数据每周五12:00更新</text>
+	<text class="{{isUpRate?'sub-tab-pane-2 up':'sub-tab-pane-2 down'}} skeleton-rect" catchtap="toggleWinRate" data-rate="winrate">胜率</text>
+	<text class="{{isPickRate?'sub-tab-pane-3 up':'sub-tab-pane-3 down'}} skeleton-rect" catchtap="togglePickRate" data-rate="pickrate">出场率</text>
 </view>
 <view wx:if="{{currentIndex==0}}" class="list-box">
 		<view class="list">
 			<view class="list-item" wx:for="{{rankData}}" wx:key="index">
-				<template is="rankitemTemplate" data="{{url,item}}"></template>
+				<template is="rankitemTemplate" data="{{item}}"></template>
 			</view>
 		</view>
 </view>
 <view wx:if="{{currentIndex==1}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='侍'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==2}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='巫'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==3}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='射'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==4}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='忍'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==5}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='守'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==6}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='祝'}}">
-			<template is="rankitemTemplate" data="{{url,item}}"></template>
+			<template is="rankitemTemplate" data="{{item}}"></template>
 		</view>
 	</view>
 </view>
-<template is="indicatorsTemplate"></template>
+</view>
