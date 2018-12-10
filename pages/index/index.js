@@ -90,9 +90,7 @@ Page({
       },
       complete:function(){
         that.setIndicators();
-        if(new Date().getDay()===1){
-          that.getWeekFreeTime();
-        }
+        that.getWeekFreeTime();
       }
     });
   },

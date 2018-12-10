@@ -37,9 +37,10 @@ export function toggleRate(rankData,isUpRate,rate){
 }
 
 export function formatTime(d){
+    var flag = d.getDay() || 7;
 		var year =d.getFullYear();
 		var month = ''+(d.getMonth()+1);
-		var day =''+d.getDate();
+		var day =''+(d.getDate()+1-flag);
 		if(month.length<2){
 		month='0'+month;
 		}
