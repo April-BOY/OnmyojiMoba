@@ -1,5 +1,5 @@
 <template name="indicatorsTemplate">
   <view class="list-box-control">
-    <text wx:for="{{indicators}}" wx:key="{{index}}" class="indicator on"></text>
+    <image src="{{icon.starUrl}}" wx:for="{{indicators}}" wx:key="{{index}}" class="indicator on"></image>
   </view>
 </template>

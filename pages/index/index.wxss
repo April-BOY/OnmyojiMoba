@@ -68,7 +68,6 @@
 
 .pifu-list{
   width: 650rpx;
-  height: 250rpx;
   margin:0 auto;
   text-align: center;
   white-space: nowrap;
@@ -77,7 +76,7 @@
   position: relative;
   display: inline-block;
   width: 28rpx;
-  height: 242rpx;
+  height: 236rpx;
   padding: 0 18rpx;
   margin: 0 6rpx 0 8rpx;
   background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/bg_pifu_list_item_cd721ae.jpg) no-repeat;

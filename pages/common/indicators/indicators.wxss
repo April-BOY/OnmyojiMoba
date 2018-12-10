@@ -1,17 +1,10 @@
 .list-box-control{
   display: block;
-  height: 60rpx;
   text-align: center;
-  line-height: 60rpx;
 }
 .list-box-control .indicator{
   display: inline-block;
   width: 30rpx;
   height: 30rpx;
-  margin: 0 4rpx;
-  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/spriter/index_z_763632d.png) no-repeat;
-  background-position: -1386rpx -236rpx;
-}
-.list-box-control .on{
-  background-position: -1420rpx -236rpx;
+  margin: 0 10rpx;
 }
