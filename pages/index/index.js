@@ -120,5 +120,12 @@ Page({
     this.setData({
       indicators
     });
+  },
+  onShareAppMessage:function(){
+    return {
+      title:'阴阳友人帐',
+      path:'/pages/index/index',
+      imageUrl:'../../images/share.png'
+    }
   }
 })
