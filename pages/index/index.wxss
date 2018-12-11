@@ -162,6 +162,3 @@
 .qbss-item{
   display: inline-block
 }
-/* .zmss .btn-more:hover{
-  background: url(https://moba.res.netease.com/pc/gw/20180725180621/img/zx/btn_more_hover_6c2b485.png) no-repeat;
-} */

@@ -1,5 +1,3 @@
-// pages/search/search.js
-import {unicodeToJson} from '../../utils/util.js';
 Page({
   data: {
     searchInfo:[],

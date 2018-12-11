@@ -69,7 +69,7 @@ Page({
 		var that = this;
 		wx.request({
 			// 获取式神胜率和出场率的接口
-			url: 'http://h5api.chatbot.nie.163.com/aitasks/tplcontext.lua?mid=g78_n3182_zhushou&key=0&act=get',
+			url: 'https://h5api.chatbot.nie.163.com/aitasks/tplcontext.lua?mid=g78_n3182_zhushou&key=0&act=get',
 			success: function(res){
 				var strJson = res.data.data;
 				var rawJson = JSON.parse(strJson);
