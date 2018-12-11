@@ -52,7 +52,11 @@ page{
     padding: 40rpx;
     border:2rpx solid #a399ba;
     height: 544rpx;
-  /* text-align: center; */
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent
 }
 .thumbnail-box{
     display: flex;

@@ -81,7 +81,6 @@ Page({
             }
           );
         });
-        console.log(that.data.shiShenLuInfo);
         if(wx.getStorageSync('shishen')){
           return;
         }else{
@@ -116,8 +115,7 @@ Page({
   getWeekFreeTime:function(){
     var d = new Date();
     var timeStr = formatTime(d);
-    var freeTime = timeStr+' 05:00:00'
-    console.log(freeTime);
+    var freeTime = timeStr+' 05:00:00';
     var freeMonth = timeStr.split('-')[1]+'月';
     var freeDay = timeStr.split('-')[2];
     var weekFreeTime = freeMonth+freeDay+'日-'+freeMonth+(parseInt(freeDay)+6)+'日'; 

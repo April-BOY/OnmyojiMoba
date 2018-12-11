@@ -14,7 +14,6 @@ Page({
     },
     onLoad:function(option){
         var shishenData = wx.getStorageSync('shishen');
-        console.log(shishenData);
         var detailData = [];
         var singleData = {};
         for(var i=0;i < shishenData.length;i++){
