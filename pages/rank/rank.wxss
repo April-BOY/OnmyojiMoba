@@ -1,5 +1,4 @@
 @import "../common/indicators/indicators.wxss";
-@import "../common/rankitem/rankitem.wxss";
 page{
   font-size: 27rpx;
   color: #fff;
@@ -38,11 +37,14 @@ page{
   border-top-color: #fff1de;
 }
 .sub-tab{
+  position: fixed;
+  top: 93rpx;
   display: block;
   height: 100rpx;
-  padding-top: 93rpx;
   line-height: 100rpx;
   border-bottom: 1rpx dashed #8d8ba6;
+  background: #4a4388;
+  z-index: 9;
 }
 .sub-tab .sub-tab-pane-1{
   display:inline-block;
@@ -110,7 +112,7 @@ page{
   left: 85rpx;
 }
 .list-box{
-  margin-top: 26rpx;
+  margin-top: 219rpx;
 }
 .list-scroll{
   height: 910rpx;
@@ -128,4 +130,18 @@ page{
 .list .list-item:nth-of-type(2n+1){
   background: rgba(0,0,0,.2);
 }
-
+.item{
+  /* flex: 1; */
+  float: left;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.item-img{
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 45rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}

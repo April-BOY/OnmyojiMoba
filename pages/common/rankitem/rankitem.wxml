@@ -1,7 +1,0 @@
-<template name="rankitemTemplate">
-    <image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
-	<text class="item skeleton-rect">{{item.name}}</text>
-	<text class="item skeleton-rect">{{item.role}}</text>
-    <text class="item skeleton-rect">{{item.winrate}}</text>
-	<text class="item skeleton-rect">{{item.pickrate}}</text>
-</template>

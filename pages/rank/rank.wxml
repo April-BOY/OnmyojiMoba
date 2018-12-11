@@ -4,7 +4,6 @@
 			wx:if="{{showSkeleton}}"
 ></skeleton>
 <import src="../common/indicators/indicators.wxml"></import>
-<import src="../common/rankitem/rankitem.wxml"></import>
 <view class="skeleton">
 	<view class="tab">
 	<text wx:for="{{tab}}" wx:key="{{index}}" class="{{index == currentIndex?'tabitem cur':'tabitem'}} skeleton-rect" data-index="{{index}}" bindtap="tabTap">{{item.name}}</text>
@@ -17,49 +16,77 @@
 <view wx:if="{{currentIndex==0}}" class="list-box">
 		<view class="list">
 			<view class="list-item" wx:for="{{rankData}}" wx:key="index">
-				<template is="rankitemTemplate" data="{{item}}"></template>
+				<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+				<text class="item skeleton-rect">{{item.name}}</text>
+				<text class="item skeleton-rect">{{item.role[0]}}</text>
+    			<text class="item skeleton-rect">{{item.winrate}}</text>
+				<text class="item skeleton-rect">{{item.pickrate}}</text>
 			</view>
 		</view>
 </view>
 <view wx:if="{{currentIndex==1}}" class="list-box">
 	<view class="list">
-		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='侍'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role[0]=='侍'||item.role[1]=='侍'}}">
+			<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+			<text class="item skeleton-rect">{{item.name}}</text>
+			<text class="item skeleton-rect">侍</text>
+    		<text class="item skeleton-rect">{{item.winrate}}</text>
+			<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==2}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='巫'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+			<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+			<text class="item skeleton-rect">{{item.name}}</text>
+			<text class="item skeleton-rect">{{item.role}}</text>
+    		<text class="item skeleton-rect">{{item.winrate}}</text>
+			<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==3}}" class="list-box">
 	<view class="list">
 		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='射'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+			<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+			<text class="item skeleton-rect">{{item.name}}</text>
+			<text class="item skeleton-rect">{{item.role}}</text>
+    		<text class="item skeleton-rect">{{item.winrate}}</text>
+			<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==4}}" class="list-box">
 	<view class="list">
-		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='忍'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role[0]=='忍'||item.role[1]=='忍'}}">
+			<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+			<text class="item skeleton-rect">{{item.name}}</text>
+			<text class="item skeleton-rect">忍</text>
+    		<text class="item skeleton-rect">{{item.winrate}}</text>
+			<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==5}}" class="list-box">
 	<view class="list">
-		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='守'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role[0]=='守'||item.role[1]=='守'}}">
+		<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+		<text class="item skeleton-rect">{{item.name}}</text>
+		<text class="item skeleton-rect">守</text>
+    	<text class="item skeleton-rect">{{item.winrate}}</text>
+		<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
 <view wx:if="{{currentIndex==6}}" class="list-box">
 	<view class="list">
-		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role=='祝'}}">
-			<template is="rankitemTemplate" data="{{item}}"></template>
+		<view class="list-item" wx:for="{{rankData}}" wx:key="index" wx:if="{{item.role[0]=='祝'||item.role[1]=='祝'}}">
+			<image class="item item-img skeleton-rect" src="{{item.head_circle}}"></image>
+			<text class="item skeleton-rect">{{item.name}}</text>
+			<text class="item skeleton-rect">祝</text>
+    		<text class="item skeleton-rect">{{item.winrate}}</text>
+			<text class="item skeleton-rect">{{item.pickrate}}</text>
 		</view>
 	</view>
 </view>
